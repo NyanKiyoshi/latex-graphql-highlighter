@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+
+\begin{document}
+
+\begin{minted}{gql.py:GraphqlLexer -x}
+mutation updateCheckoutShippingOptions(
+  $checkoutId: ID!
+  $shippingMethodId: ID!
+) {
+  checkoutShippingMethodUpdate(
+    checkoutId: $checkoutId
+    shippingMethodId: $shippingMethodId
+  ) {
+    errors {
+      field
+      message
+      __typename
+    }
+    checkout {
+      ...Checkout
+      __typename
+    }
+    __typename
+  }
+}
+\end{minted}
+
+\end{document}
