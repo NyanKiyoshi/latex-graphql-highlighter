@@ -1,11 +1,11 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage{minted}
+\input{gql.tex}
 
 \begin{document}
 
-\begin{minted}{gql.py:GraphqlLexer -x}
+\begin{gql}
 mutation updateCheckoutShippingOptions(
   $checkoutId: ID!
   $shippingMethodId: ID!
@@ -26,6 +26,6 @@ mutation updateCheckoutShippingOptions(
     __typename
   }
 }
-\end{minted}
+\end{gql}
 
 \end{document}
