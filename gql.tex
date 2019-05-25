@@ -1,4 +1,32 @@
 \usepackage{minted}
+\usepackage{caption}
 
-\newminted[gql]{gql.py:GraphqlLexer -x}{gobble=0,linenos,frame=single}
+% Usage:
+%   \begin{gql}
+%       Your GraphQL code here...
+%   \end{gql}
+%
+% Refer to http://piotrkosoft.net/pub/mirrors/CTAN/macros/latex/contrib/minted/minted.pdf for more information.
+\newminted[gql]{gql.py:GraphqlLexer -x}{%
+gobble=0,% Indentation count to remove
+linenos,% Show the line numbers
+frame=single,% Show a frame around the code
+linebreaks% Break (wrap) overflowing lines
+}
 
+% Useful for allowing multipages minted code with captions.
+% Refer to http://ftp.isu.edu.tw/pub/Unix/CTAN/macros/latex/contrib/caption/caption.pdf for more information.
+%
+% Usage:
+%   \begin{mintedfig}
+%       \begin{gql}
+%           your code...
+%           it can have a lot of...
+%           lines.
+%           And it will be just fine.
+%       \end{gql}
+%   \end{mintedfig}
+\newenvironment{mintedfig}{\captionsetup{%
+type=figure,% Type of caption. Useful if you want to keep the figure count. Instead, you can set it to 'listing' or something else.
+belowskip=10pt% The skip below the caption.
+}}{}
